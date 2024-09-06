@@ -19,3 +19,15 @@ test('Fetches successfully data from an API', async()=>{
    const result = await fetchData('https://jsonplaceholder.typicode.com/posts/1');
    expect(result).toBe(data);
 });
+
+
+test('Fetches erroneously data from an API', async()=>{
+    const errorMessage = "Network Error";
+    mockedAxios.get.mockRejectedValue(new Error(errorMessage));
+
+    try{
+        await fetchData('https://jsonplaceholder.typicode.com/posts/1');
+    }catch(e){
+        expect(e).toBe(errorMessage);
+    }
+});
