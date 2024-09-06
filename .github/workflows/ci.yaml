@@ -1,0 +1,60 @@
+name: Continuous Integration Workflow
+
+#This workflow is triggered whenever a new PR is created or push changes on the main branch
+on:
+  pull_request:
+    branches:
+     - main
+    paths:
+     - 'src/**'
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+
+jobs:
+  
+  #Run unit tests to make sure everything is okay
+  test:
+    name: 'Run unit tests'
+    defaults:
+      run:
+       shell: bash
+
+       # Define  the working directory for all run steps in the workflow
+       working-directory: ./src
+    #Specify the os we want the workflow to run on
+    runs-on: ubuntu-latest
+    # Define the steps for this job
+    steps:
+      - uses: actions/checkout@v2
+        name: 'Checkout repository'
+
+      - name: 'Install Dependencies'
+        run: yarn
+
+      - name: 'Run tests'
+        run: yarn test
+      
+      - name: 'build project'
+        run: yarn build
+
+  # Run the linter to check for code style issues
+  lint:
+    name: 'Run linter'
+    defaults:
+      run:
+         shell: bash
+         # Define the working directory for all run steps in the workflow
+         working-directory: ./src
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        name: 'Checkout Repository'
+
+      - name: 'Install Dependencies'
+        run: yarn
+
+      - name: 'Run linter'
+        run: npx standard -v

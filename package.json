@@ -1,0 +1,29 @@
+{
+  "name": "node-integration-with-jest",
+  "version": "1.0.0",
+  "description": "To Learn Testing concept plus CI/CD",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "npx tsc",
+    "start": "node ./dist/index.js",
+    "dev": "nodemon src/index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^22.1.0",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.4",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}
