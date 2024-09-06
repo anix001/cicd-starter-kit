@@ -22,7 +22,7 @@ test('Fetches successfully data from an API', async()=>{
 
 
 test('Fetches erroneously data from an API', async()=>{
-    const errorMessage = "Network Error";
+    const errorMessage = "Error: Network Error";
     mockedAxios.get.mockRejectedValue(new Error(errorMessage));
 
     try{
