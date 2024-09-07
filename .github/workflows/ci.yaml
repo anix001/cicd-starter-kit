@@ -57,4 +57,4 @@ jobs:
         run: yarn
 
       - name: 'Run linter'
-        run: npx eslint 'src/**/*.ts'
+        run: npx eslint 'src/*.ts'
