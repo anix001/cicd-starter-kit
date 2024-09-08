@@ -22,7 +22,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'javascript', 'typescript']
+        language: [ 'typescript']
 
         
     steps:
@@ -33,7 +33,7 @@ jobs:
       - name: Initializes CodeQL
         uses: github/codeql-action/init@v3
         with:
-          language:${{ matrix.language}}
+          language:${{ matrix.language }}
 
       # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
       # If this step fails, then you should remove it and run the build manually (see below)
