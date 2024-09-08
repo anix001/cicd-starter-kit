@@ -46,6 +46,6 @@ test('handles errors when fetching user data', async () => {
     try {
       await getUserData(1);
     } catch (e:any) {
-      expect(e.message).toBe('Network Error: Unable to fetch user data!');
+      expect(e.message).toBe('Network Error: Unable to fetch user data');
     }
   });
